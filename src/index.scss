@@ -1,0 +1,56 @@
+// ------- Homepage -------
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap');
+
+$primary: rgba(255, 255, 224, 0.957);
+$secondary: rgb(34, 154, 159);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+body {
+    height: 100vh;
+    background: $primary;
+    font-size: clamp(.7rem, 3vw, 1.2rem);
+    font-family: 'Roboto Mono', monospace;
+    border: 1rem solid rgb(255, 98, 0);
+    h1, button {
+        font-size: clamp(2rem, 10vw, 8rem);
+    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    max-width: 960px;
+    margin: 0 auto;
+    gap: 3rem;
+}
+
+.page-title {
+    color: $secondary;
+}
+
+.play-btn {
+    width: 50vw;
+    max-width: 960px;
+    border: none;
+    background: $secondary;
+    color: $primary;
+    margin: .5rem;
+    line-height: 1.5;
+
+    &:hover {
+        background: rgb(38, 197, 202);
+        cursor: pointer;
+    }
+}
