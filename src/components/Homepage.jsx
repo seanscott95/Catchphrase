@@ -1,10 +1,13 @@
+const Homepage = ({ setHome, setCategories }) => {
+  const playBtnClickHandler = () => {
+    setHome(prev => !prev);
+    setCategories(prev => !prev);
+  };
 
-
-const Homepage = () => {
   return (
-    <div className="container">
-      <h1 className="page-title">CATCH PHRASE</h1>
-      <button className="play-btn">PLAY</button>
+    <div className='container'>
+      <h1 className='page-title'>CATCH PHRASE</h1>
+      <button className='play-btn' onClick={playBtnClickHandler}>PLAY</button>
     </div>
   );
 };
