@@ -33,7 +33,6 @@ body {
     justify-content: center;
     align-items: center;
     width: 100vw;
-    max-width: 960px;
     margin: 0 auto;
     gap: 3rem;
     height: 90vh;
@@ -73,11 +72,29 @@ body {
 .categoryPageContainer {
     @include container;
     h1 {
-        font-size: clamp(2rem, 6vw, 5rem);
+        font-size: clamp(1rem, 6vw, 5rem);
     }
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 25%;
+
+    .categories {
+        display: grid;
+        grid-template-columns: repeat(4, 25%);
+        justify-content: center;
+        grid-gap: 1rem;
+
+        .categoryBtn {
+            @include button;
+            padding: .1em .3em;
+            font-size: clamp(.5rem, 4vw, 4rem);
+            border-radius: .5em;
+            width: 100%;
+            margin: 0;
+        }
+    }
 }
 
+// ------- Navbar --------
 .navbar {
     display: flex;
     justify-content: space-evenly;
@@ -86,10 +103,16 @@ body {
 
     .navbarBtn {
         @include button;
-        font-size: clamp(1.5rem, 6vw, 3rem);
+        font-size: clamp(1rem, 5vw, 3rem);
         padding: .1em .5em;
         min-width: fit-content;
         width: 20%;
     }
 }
 
+// ---------- Responsiveness ----------
+@media (max-width: 600px) {
+    .categories {
+        grid-template-columns: repeat(3, 30%);
+    }
+}

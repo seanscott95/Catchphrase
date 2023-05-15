@@ -5,12 +5,12 @@ const CategoriesPage = ({ handleHomeBtnClick }) => {
         'PARTY',
         'POP',
         'PEOPLE',
-        'SPORTS',
+        'TV',
         'WORLD',
         'SLANG',
         'BRANDS',
         'NERD',
-        'TV',
+        'SPORTS',
         'MUSIC',
         'GAMES',
     ];
@@ -24,7 +24,11 @@ const CategoriesPage = ({ handleHomeBtnClick }) => {
             </section>
 
             <section className='categories'>
+                {categories.map(item => (
+                    <button className="categoryBtn" key={item}>{item}</button>
+                ))}
             </section>
+
         </div>
     );
 };
