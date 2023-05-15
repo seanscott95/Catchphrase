@@ -66,6 +66,12 @@ const MainLayout = () => {
         setRulesPage(true);
     };
 
+    const handleBackBtnClick = () => {
+        setHomepage(false);
+        setCategoriesPage(true);
+        setRulesPage(false);
+    };
+
   return (
     <>
         {homepage ?
@@ -80,7 +86,10 @@ const MainLayout = () => {
             handleHomeBtnClick={handleHomeBtnClick}
             handleNextBtnClick={handleNextBtnClick}
           /> : <></>}
-        {rulesPage ? <RulesPageComp /> : <></>}
+        {rulesPage ?
+        <RulesPageComp
+          handleBackBtnClick={handleBackBtnClick}
+        /> : <></>}
     </>
   );
 };
