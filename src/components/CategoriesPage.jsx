@@ -1,4 +1,4 @@
-const CategoriesPage = ({ categories, handleHomeBtnClick, handleNextBtnClick }) => {
+const CategoriesPage = ({ categories, setCategories, handleHomeBtnClick, handleNextBtnClick }) => {
 
     const handleCategoryBtn = (e) => {
         const category = e.target.value;
