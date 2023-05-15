@@ -1,6 +1,4 @@
-import { useState } from "react";
-
-const CategoriesPage = ({ handleHomeBtnClick }) => {
+const CategoriesPage = ({ categories, handleHomeBtnClick, handleNextBtnClick }) => {
 
     const handleCategoryBtn = (e) => {
         const category = e.target.value;
@@ -12,62 +10,13 @@ const CategoriesPage = ({ handleHomeBtnClick }) => {
         });
         setCategories(updatedArray);
     };
-    
-    const [categories, setCategories] = useState([
-        {
-            name: 'PARTY',
-            include: true,
-        },
-        {
-            name: 'POP',
-            include: true,
-        },
-        {
-            name: 'PEOPLE',
-            include: true,
-        },
-        {
-            name: 'TV',
-            include: true,
-        },
-        {
-            name: 'WORLD',
-            include: true,
-        },
-        {
-            name: 'SLANG',
-            include: true,
-        },
-        {
-            name: 'BRANDS',
-            include: true,
-        },
-        {
-            name: 'NERD',
-            include: true,
-        },
-        {
-            name: 'SPORTS',
-            include: true,
-        },
-        {
-            name: 'MUSIC',
-            include: true,
-        },
-        {
-            name: 'GAMES',
-            include: true,
-        },
-    ]);
 
-    console.log(categories)
-    
     return (
         <div className='categoryPageContainer'>
             <section className='navbar'>
                 <button onClick={handleHomeBtnClick} className='navbarBtn'>HOME</button>
                 <h1 className='pageTitle'>CATEGORIES</h1>
-                <button className='navbarBtn'>NEXT</button>
+                <button onClick={handleNextBtnClick} className='navbarBtn'>NEXT</button>
             </section>
 
             <section className='categories'>

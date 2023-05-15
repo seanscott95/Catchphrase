@@ -1,7 +1,7 @@
-const Homepage = ({ setHome, setCategories }) => {
+const Homepage = ({ setHomepage, setCategoriesPage }) => {
   const playBtnClickHandler = () => {
-    setHome(prev => !prev);
-    setCategories(prev => !prev);
+    setHomepage(prev => !prev);
+    setCategoriesPage(prev => !prev);
   };
 
   return (
