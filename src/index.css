@@ -11,7 +11,7 @@ body {
   background: rgba(255, 255, 224, 0.957);
   font-size: clamp(0.7rem, 3vw, 1.2rem);
   font-family: "Roboto Mono", monospace;
-  border: 1rem solid rgb(255, 98, 0);
+  border: 1rem solid rgb(229, 80, 16);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -113,6 +113,57 @@ body {
   cursor: pointer;
 }
 
+.rulesPageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  margin: 0 auto;
+  gap: 3rem;
+  height: 90vh;
+  width: 100%;
+  justify-content: flex-start;
+}
+.rulesPageContainer h1 {
+  font-size: clamp(1rem, 6vw, 5rem);
+}
+.rulesPageContainer button {
+  border: none;
+  background: rgb(34, 154, 159);
+  color: rgba(255, 255, 224, 0.957);
+  margin: 0.5rem;
+  line-height: 1.5;
+  border-radius: 5px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+  background: rgb(229, 80, 16);
+  font-size: clamp(1rem, 5vw, 3rem);
+  padding: 1rem;
+  margin: 2rem;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+}
+.rulesPageContainer button:hover {
+  background: rgb(38, 197, 202);
+  cursor: pointer;
+}
+.rulesPageContainer .rules {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.rulesPageContainer .instructions {
+  margin: 1rem;
+}
+.rulesPageContainer .instructions li {
+  color: rgb(34, 154, 159);
+  font-size: clamp(1rem, 3.5vw, 2.5rem);
+}
+.rulesPageContainer .instructions h1 {
+  color: rgb(229, 80, 16);
+  text-align: center;
+}
+
 .navbar {
   display: flex;
   justify-content: space-evenly;
@@ -141,5 +192,9 @@ body {
 @media (max-width: 600px) {
   .categories {
     grid-template-columns: repeat(3, 30%);
+  }
+  .rules {
+    flex-direction: column;
+    width: 90%;
   }
 }/*# sourceMappingURL=index.css.map */

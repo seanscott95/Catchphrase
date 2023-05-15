@@ -3,6 +3,7 @@
 
 $primary: rgba(255, 255, 224, 0.957);
 $secondary: rgb(34, 154, 159);
+$border: rgb(229, 80, 16);
 
 * {
   margin: 0;
@@ -16,7 +17,7 @@ body {
     background: $primary;
     font-size: clamp(.7rem, 3vw, 1.2rem);
     font-family: 'Roboto Mono', monospace;
-    border: 1rem solid rgb(255, 98, 0);
+    border: 1rem solid $border;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -104,6 +105,42 @@ body {
     }
 }
 
+// ------- Rules --------
+.rulesPageContainer {
+    @include container;
+    h1 {
+        font-size: clamp(1rem, 6vw, 5rem);
+    }
+    justify-content: flex-start;
+
+    button {
+        @include button;
+        background: $border;
+        font-size: clamp(1rem, 5vw, 3rem);
+        padding: 1rem;
+        margin: 2rem;
+        min-width: fit-content;
+    }
+
+    .rules {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+    .instructions {
+        margin: 1rem;
+    }
+    .instructions li {
+        color: $secondary;
+        font-size: clamp(1rem, 3.5vw, 2.5rem);
+    }
+    .instructions h1 {
+        color: $border;
+        text-align: center;
+    }
+}
+
+
 // ------- Navbar --------
 .navbar {
     display: flex;
@@ -124,5 +161,10 @@ body {
 @media (max-width: 600px) {
     .categories {
         grid-template-columns: repeat(3, 30%);
+    }
+
+    .rules {
+        flex-direction: column;
+        width: 90%;
     }
 }
