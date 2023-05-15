@@ -5,9 +5,9 @@ const Homepage = ({ setHome, setCategories }) => {
   };
 
   return (
-    <div className='container'>
-      <h1 className='page-title'>CATCH PHRASE</h1>
-      <button className='play-btn' onClick={playBtnClickHandler}>PLAY</button>
+    <div className='homepageContainer'>
+      <h1 className='pageTitle'>CATCH PHRASE</h1>
+      <button className='playBtn' onClick={playBtnClickHandler}>PLAY</button>
     </div>
   );
 };
