@@ -4,11 +4,17 @@ import Categories from "../components/CategoriesPage";
 
 const MainLayout = () => {
     const [home, setHome] = useState(true);
-    const [categories, setCategories] = useState(false)
+    const [categories, setCategories] = useState(false);
+
+    const handleHomeBtnClick = () => {
+      setHome(true);
+      setCategories(false);
+    };
+
   return (
     <>
         {home ? <Homepage setHome={setHome} setCategories={setCategories} /> : <></>}
-        {categories ? <Categories /> : <></>}
+        {categories ? <Categories handleHomeBtnClick={handleHomeBtnClick} /> : <></>}
     </>
   );
 };
