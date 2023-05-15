@@ -16,11 +16,12 @@ body {
   justify-content: center;
   align-items: center;
 }
-body h1, body button {
-  font-size: clamp(2rem, 10vw, 8rem);
+
+.pageTitle {
+  color: rgb(34, 154, 159);
 }
 
-.container {
+.homepageContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -29,13 +30,13 @@ body h1, body button {
   max-width: 960px;
   margin: 0 auto;
   gap: 3rem;
+  height: 90vh;
+  width: 100%;
 }
-
-.page-title {
-  color: rgb(34, 154, 159);
+.homepageContainer h1, .homepageContainer button {
+  font-size: clamp(2rem, 10vw, 8rem);
 }
-
-.play-btn {
+.homepageContainer .playBtn {
   border: none;
   background: rgb(34, 154, 159);
   color: rgba(255, 255, 224, 0.957);
@@ -46,7 +47,49 @@ body h1, body button {
   width: 50vw;
   max-width: 960px;
 }
-.play-btn:hover {
+.homepageContainer .playBtn:hover {
+  background: rgb(38, 197, 202);
+  cursor: pointer;
+}
+
+.categoryPageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  max-width: 960px;
+  margin: 0 auto;
+  gap: 3rem;
+  height: 90vh;
+  width: 100%;
+  justify-content: space-between;
+}
+.categoryPageContainer h1 {
+  font-size: clamp(2rem, 6vw, 5rem);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100vw;
+  align-items: center;
+}
+.navbar .navbarBtn {
+  border: none;
+  background: rgb(34, 154, 159);
+  color: rgba(255, 255, 224, 0.957);
+  margin: 0.5rem;
+  line-height: 1.5;
+  border-radius: 5px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+  font-size: clamp(1.5rem, 6vw, 3rem);
+  padding: 0.1em 0.5em;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  width: 20%;
+}
+.navbar .navbarBtn:hover {
   background: rgb(38, 197, 202);
   cursor: pointer;
 }/*# sourceMappingURL=index.css.map */

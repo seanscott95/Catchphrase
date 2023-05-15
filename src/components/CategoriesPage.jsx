@@ -1,5 +1,5 @@
 
-const CategoriesPage = () => {
+const CategoriesPage = ({ handleHomeBtnClick }) => {
 
     const categories = [
         'PARTY',
@@ -16,11 +16,11 @@ const CategoriesPage = () => {
     ];
 
     return (
-        <div className='container'>
+        <div className='categoryPageContainer'>
             <section className='navbar'>
-                <button className='home-btn'>HOME</button>
-                <h1 className='page-title'>CATEGORIES</h1>
-                <button className='next-btn'>NEXT</button>
+                <button onClick={handleHomeBtnClick} className='navbarBtn'>HOME</button>
+                <h1 className='pageTitle'>CATEGORIES</h1>
+                <button className='navbarBtn'>NEXT</button>
             </section>
 
             <section className='categories'>
