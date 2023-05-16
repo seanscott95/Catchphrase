@@ -1,26 +1,24 @@
 import { useState } from "react";
 
-const GamePage = ({ handleHomeBtnClick, setCurrentWord, currentWord, setCount }) => {
+const GamePage = ({ setCount, currentList, handleHomeBtnClick }) => {
+    const [currentWord, setCurrentWord] = useState(currentList[0] || '');
     const [disabled, setDisabled] = useState('');
 
-    const disableButton = () => {
+    const handleGameButtons = () => {
+        // Disables buttons for two seconds
         setDisabled(true);
         setTimeout(() => {
             setDisabled('');
         }, 2000);
-    };
 
-    const handleSkipBtn = () => {
-        // blur btns
-        disableButton();
-        // go to new word
+        // Renders the next word in the list
+        const index = currentList.indexOf(currentWord);
+        setCurrentWord(currentList[index + 1]);
     };
 
     const handleCorrectBtn = () => {
-        // blur btns
-        disableButton();
-        // go to new word
-        // add to score
+        handleGameButtons();
+        setCount(count => count + 1);
     };
 
     return (
@@ -30,7 +28,7 @@ const GamePage = ({ handleHomeBtnClick, setCurrentWord, currentWord, setCount })
             </section>
             <h1>{currentWord}</h1>
             <section className='footer'>
-                <button onClick={handleSkipBtn} disabled={disabled} className='navbarBtn'>SKIP</button>
+                <button onClick={handleGameButtons} disabled={disabled} className='navbarBtn'>SKIP</button>
                 <button onClick={handleCorrectBtn} disabled={disabled} className='navbarBtn'>CORRECT</button>
             </section>
         </div>

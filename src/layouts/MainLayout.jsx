@@ -4,6 +4,7 @@ import CategoriesPageComp from "../components/CategoriesPage";
 import RulesPageComp from "../components/RulesPage";
 import GamePageComp from "../components/GamePage";
 import LosePageComp from "../components/LosePage";
+import words from "../assets/Words.json";
 
 const MainLayout = () => {
   const [homepage, setHomepage] = useState(true);
@@ -13,65 +14,87 @@ const MainLayout = () => {
   const [losePage, setLosePage] = useState(false);
 
   const [count, setCount] = useState(0);
-  const [currentWord, setCurrentWord] = useState('');
+  const [currentList, setCurrentList] = useState('');
 
   const [categories, setCategories] = useState([
     {
       name: 'PARTY',
       include: true,
+      list: words.party,
     },
     {
       name: 'POP',
       include: true,
+      list: words.pop,
     },
     {
       name: 'PEOPLE',
       include: true,
+      list: words.people,
     },
     {
       name: 'TV',
       include: true,
+      list: words.tv,
     },
     {
       name: 'WORLD',
       include: true,
+      list: words.world,
     },
     {
       name: 'SLANG',
       include: true,
+      list: words.slang,
     },
     {
       name: 'BRANDS',
       include: true,
+      list: words.brands,
     },
     {
       name: 'NERD',
       include: true,
+      list: words.nerd,
     },
     {
       name: 'SPORTS',
       include: true,
+      list: words.sports,
     },
     {
       name: 'MUSIC',
       include: true,
+      list: words.music,
     },
     {
       name: 'GAMES',
       include: true,
+      list: words.games,
     },
   ]);
 
   const handleStartGame = () => {
-    setCurrentWord('');
     setCount(0);
     setHomepage(false);
     setCategoriesPage(false);
     setRulesPage(false);
     setLosePage(false);
     setGamePage(true);
-    // start timer
-    // at end of timer go to lose page
+
+    // Creates a list of shuffled words for selected categories
+    const list = categories.map((obj) => {
+      if (obj.include === true) {
+        return obj.list
+      };
+    }).flat().sort(() => Math.random() - 0.5);
+    setCurrentList(list)
+
+    // Ends the game in 60 seconds
+    setTimeout(() => {
+      setGamePage(false);
+      setLosePage(true);
+    }, 60000);
   };
 
   const handleHomeBtnClick = () => {
@@ -122,8 +145,7 @@ const MainLayout = () => {
       {gamePage ? 
         <GamePageComp
         setCount={setCount}
-        currentWord={currentWord}
-        setCurrentWord={setCurrentWord}
+        currentList={currentList}
         handleHomeBtnClick={handleHomeBtnClick}
         /> : <></>}
       {losePage ?
