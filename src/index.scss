@@ -13,7 +13,7 @@ $border: rgb(229, 80, 16);
 }
 
 body {
-    height: 100vh;
+    height: 100svh;
     background: $primary;
     font-size: clamp(.7rem, 3vw, 1.2rem);
     font-family: 'Roboto Mono', monospace;
@@ -33,10 +33,10 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100vw;
+    width: 100svw;
     margin: 0 auto;
     gap: 3rem;
-    height: 90vh;
+    height: 90svh;
     width: 100%;
 }
 
@@ -54,6 +54,22 @@ body {
     }
 }
 
+// ------- Navbar --------
+.navbar, .footer {
+    display: flex;
+    justify-content: space-evenly;
+    width: 95svw;
+    align-items: center;
+
+    .navbarBtn {
+        @include button;
+        font-size: clamp(1rem, 5vw, 3rem);
+        padding: .1em .5em;
+        min-width: fit-content;
+        width: 20%;
+    }
+}
+
 // ------------ Pages -------------
 // ------ Homepage -------
 .homepageContainer {
@@ -63,7 +79,7 @@ body {
     }
     .playBtn {
         @include button;
-        width: 50vw;
+        width: 50svw;
         max-width: 960px;
     }
 }
@@ -143,8 +159,8 @@ body {
 // ------- Lose Page ------
 .loserPageContainer {
     @include container;
-    width: 100vw;
-    height: 100vh;
+    width: 100svw;
+    height: 100svh;
     color: $primary;
     background: $border;
     text-align: center;
@@ -153,24 +169,32 @@ body {
     }
     h2 {
         font-size: clamp(.7rem, 7vw, 7rem);
-
     }
 }
 
-// ------- Navbar --------
-.navbar, .footer {
-    display: flex;
-    justify-content: space-evenly;
-    width: 100vw;
-    align-items: center;
-
-    .navbarBtn {
-        @include button;
-        font-size: clamp(1rem, 5vw, 3rem);
-        padding: .1em .5em;
-        min-width: fit-content;
-        width: 20%;
+// ------ Rules Page -------
+.gamePageContainer {
+    @include container;
+    justify-content: space-between;
+    width: 90svw;
+    .navbar {
+        justify-content: flex-start;
     }
+    h1 {
+        font-size: clamp(1rem, 10vw, 10rem);
+        color: $secondary;
+    }
+    .footer button {
+        font-size: clamp(2rem, 6vw, 5rem);
+        width: 40%;
+    }
+    .footer button:first-of-type {
+        background: grey;
+    }
+    button:disabled {
+        opacity: 60%;
+    }
+    
 }
 
 // ---------- Responsiveness ----------

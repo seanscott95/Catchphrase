@@ -2,13 +2,18 @@ import { useState } from "react";
 import HomepageComp from "../components/Homepage";
 import CategoriesPageComp from "../components/CategoriesPage";
 import RulesPageComp from "../components/RulesPage";
+import GamePageComp from "../components/GamePage";
 import LosePageComp from "../components/LosePage";
 
 const MainLayout = () => {
   const [homepage, setHomepage] = useState(true);
   const [categoriesPage, setCategoriesPage] = useState(false);
   const [rulesPage, setRulesPage] = useState(false);
+  const [gamePage, setGamePage] = useState(false)
   const [losePage, setLosePage] = useState(false);
+
+  const [count, setCount] = useState(0);
+  const [currentWord, setCurrentWord] = useState('');
 
   const [categories, setCategories] = useState([
     {
@@ -57,11 +62,26 @@ const MainLayout = () => {
     },
   ]);
 
+  const handleStartGame = () => {
+    setCurrentWord('');
+    setCount(0);
+    setHomepage(false);
+    setCategoriesPage(false);
+    setRulesPage(false);
+    setLosePage(false);
+    setGamePage(true);
+    // start timer
+    // at end of timer go to lose page
+  };
+
   const handleHomeBtnClick = () => {
     setHomepage(true);
     setCategoriesPage(false);
     setRulesPage(false);
     setLosePage(false);
+    setGamePage(false);
+    setCurrentWord('');
+    setCount(0);
   };
 
   const handleNextBtnClick = () => {
@@ -69,6 +89,7 @@ const MainLayout = () => {
     setCategoriesPage(false);
     setRulesPage(true);
     setLosePage(false);
+    setGamePage(false);
   };
 
   const handleBackBtnClick = () => {
@@ -76,6 +97,7 @@ const MainLayout = () => {
     setCategoriesPage(true);
     setRulesPage(false);
     setLosePage(false);
+    setGamePage(false);
   };
 
   return (
@@ -95,6 +117,14 @@ const MainLayout = () => {
       {rulesPage ?
         <RulesPageComp
           handleBackBtnClick={handleBackBtnClick}
+          handleStartGame={handleStartGame}
+        /> : <></>}
+      {gamePage ? 
+        <GamePageComp
+        setCount={setCount}
+        currentWord={currentWord}
+        setCurrentWord={setCurrentWord}
+        handleHomeBtnClick={handleHomeBtnClick}
         /> : <></>}
       {losePage ?
         <LosePageComp

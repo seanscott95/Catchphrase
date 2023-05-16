@@ -7,7 +7,7 @@
 }
 
 body {
-  height: 100vh;
+  height: 100svh;
   background: rgba(255, 255, 224, 0.957);
   font-size: clamp(0.7rem, 3vw, 1.2rem);
   font-family: "Roboto Mono", monospace;
@@ -21,15 +21,40 @@ body {
   color: rgb(34, 154, 159);
 }
 
+.navbar, .footer {
+  display: flex;
+  justify-content: space-evenly;
+  width: 95svw;
+  align-items: center;
+}
+.navbar .navbarBtn, .footer .navbarBtn {
+  border: none;
+  background: rgb(34, 154, 159);
+  color: rgba(255, 255, 224, 0.957);
+  margin: 0.5rem;
+  line-height: 1.5;
+  border-radius: 5px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+  font-size: clamp(1rem, 5vw, 3rem);
+  padding: 0.1em 0.5em;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  width: 20%;
+}
+.navbar .navbarBtn:hover, .footer .navbarBtn:hover {
+  background: rgb(38, 197, 202);
+  cursor: pointer;
+}
+
 .homepageContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  width: 100svw;
   margin: 0 auto;
   gap: 3rem;
-  height: 90vh;
+  height: 90svh;
   width: 100%;
 }
 .homepageContainer h1, .homepageContainer button {
@@ -43,7 +68,7 @@ body {
   line-height: 1.5;
   border-radius: 5px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
-  width: 50vw;
+  width: 50svw;
   max-width: 960px;
 }
 .homepageContainer .playBtn:hover {
@@ -56,10 +81,10 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  width: 100svw;
   margin: 0 auto;
   gap: 3rem;
-  height: 90vh;
+  height: 90svh;
   width: 100%;
   justify-content: flex-start;
   gap: 25%;
@@ -118,10 +143,10 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  width: 100svw;
   margin: 0 auto;
   gap: 3rem;
-  height: 90vh;
+  height: 90svh;
   width: 100%;
   justify-content: flex-start;
 }
@@ -169,13 +194,13 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  width: 100svw;
   margin: 0 auto;
   gap: 3rem;
-  height: 90vh;
+  height: 90svh;
   width: 100%;
-  width: 100vw;
-  height: 100vh;
+  width: 100svw;
+  height: 100svh;
   color: rgba(255, 255, 224, 0.957);
   background: rgb(229, 80, 16);
   text-align: center;
@@ -187,29 +212,35 @@ body {
   font-size: clamp(0.7rem, 7vw, 7rem);
 }
 
-.navbar, .footer {
+.gamePageContainer {
   display: flex;
-  justify-content: space-evenly;
-  width: 100vw;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  width: 100svw;
+  margin: 0 auto;
+  gap: 3rem;
+  height: 90svh;
+  width: 100%;
+  justify-content: space-between;
+  width: 90svw;
 }
-.navbar .navbarBtn, .footer .navbarBtn {
-  border: none;
-  background: rgb(34, 154, 159);
-  color: rgba(255, 255, 224, 0.957);
-  margin: 0.5rem;
-  line-height: 1.5;
-  border-radius: 5px;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
-  font-size: clamp(1rem, 5vw, 3rem);
-  padding: 0.1em 0.5em;
-  min-width: -moz-fit-content;
-  min-width: fit-content;
-  width: 20%;
+.gamePageContainer .navbar {
+  justify-content: flex-start;
 }
-.navbar .navbarBtn:hover, .footer .navbarBtn:hover {
-  background: rgb(38, 197, 202);
-  cursor: pointer;
+.gamePageContainer h1 {
+  font-size: clamp(1rem, 10vw, 10rem);
+  color: rgb(34, 154, 159);
+}
+.gamePageContainer .footer button {
+  font-size: clamp(2rem, 6vw, 5rem);
+  width: 40%;
+}
+.gamePageContainer .footer button:first-of-type {
+  background: grey;
+}
+.gamePageContainer button:disabled {
+  opacity: 60%;
 }
 
 @media (max-width: 600px) {
