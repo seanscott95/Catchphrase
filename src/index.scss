@@ -105,7 +105,7 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
-        
+
         .categoryBtnGroup {
             display: flex;
             flex-wrap: wrap;
@@ -115,7 +115,6 @@ body {
             width: 90%;
             gap: 1em;
         }
-
         .categoryBtn {
             @include button;
             padding: .5em;
@@ -140,72 +139,68 @@ body {
 // ------- Rules --------
 .rulesPageContainer {
     @include container;
+    height: fit-content;
+
     h1 {
         font-size: clamp(1rem, 6vw, 5rem);
     }
-    justify-content: flex-start;
-
-    button {
-        @include button;
-        background: $border;
-        font-size: $medFontSize;
-        padding: .5rem;
-        min-width: fit-content;
-        height: fit-content;
-    }
-
     .rules {
         display: flex;
-        gap: 1rem;
+        gap: 1.5rem;
         align-items: center;
+
+        h1 {
+            color: $border;
+        }
+        button {
+            @include button;
+            background: $border;
+            font-size: clamp(1rem, 3vw, 3rem);
+            padding: .5em 1em;
+            margin: 0 1em;
+            min-width: fit-content;
+            width: 20%;
+            height: fit-content;
+        }
+        li {
+            color: $secondary;
+            font-size: clamp(.5em, 2vw, 5em);
+            margin: 1em 0;
+            text-align: start;
+        }
     }
-    .instructions {
-        margin: 1rem;
-    }
-    .instructions li {
-        color: $secondary;
-        font-size: $fontSize;
-    }
-    .instructions h1 {
-        color: $border;
-        text-align: center;
-    }
+    
 }
 
 // ------- Lose Page ------
 .loserPageContainer {
     @include container;
-    display: flex;
     color: $primary;
     background: $border;
-    text-align: center;
     
     .loserPageContent {
-        margin: 3rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        h1 {
+            font-size: $xxlrgFontSize;
+            height: 45%;
+        }
+        h2 {
+            font-size: clamp(.7rem, 7vw, 7rem);
+            height: fit-content;
+        }
     }
-
-    h1 {
-        font-size: $xxlrgFontSize;
-    }
-    h2 {
-        font-size: clamp(.7rem, 7vw, 7rem);
+    .footer {
+        justify-content: space-between;
     }
 }
-
-// @mixin container {
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     align-items: center;
-//     margin: 0 auto;
-//     gap: 3rem;
-//     width: 100%;
-// }
 
 // ------ Rules Page -------
 .gamePageContainer {
     @include container;
-    justify-content: space-between;
+
     .navbar {
         justify-content: flex-start;
     }
@@ -213,17 +208,27 @@ body {
         font-size: $xxlrgFontSize;
         color: $secondary;
     }
-    .footer button {
-        font-size: clamp(2rem, 6vw, 5rem);
-        width: 40%;
+    .footer {
+        justify-content: space-around;
+        button {
+            font-size: clamp(2rem, 6vw, 5rem);
+            width: 40%;
+        }
+        button:first-of-type {
+            background: grey;
+        }
+        button:disabled {
+            opacity: 60%;
+        }
     }
-    .footer button:first-of-type {
-        background: grey;
+    .currentWord {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        h1 {
+            height: fit-content;
+        }
     }
-    button:disabled {
-        opacity: 60%;
-    }
-    
 }
 
 // ---------- Responsiveness ----------

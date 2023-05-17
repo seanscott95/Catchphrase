@@ -150,12 +150,21 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  justify-content: flex-start;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 .rulesPageContainer h1 {
   font-size: clamp(1rem, 6vw, 5rem);
 }
-.rulesPageContainer button {
+.rulesPageContainer .rules {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+.rulesPageContainer .rules h1 {
+  color: rgb(229, 80, 16);
+}
+.rulesPageContainer .rules button {
   border: none;
   background: rgb(34, 154, 159);
   color: rgba(255, 255, 224, 0.957);
@@ -163,32 +172,24 @@ body {
   border-radius: 5px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
   background: rgb(229, 80, 16);
-  font-size: clamp(1rem, 5vw, 3rem);
-  padding: 0.5rem;
+  font-size: clamp(1rem, 3vw, 3rem);
+  padding: 0.5em 1em;
+  margin: 0 1em;
   min-width: -moz-fit-content;
   min-width: fit-content;
+  width: 20%;
   height: -moz-fit-content;
   height: fit-content;
 }
-.rulesPageContainer button:hover {
+.rulesPageContainer .rules button:hover {
   background: rgb(38, 197, 202);
   cursor: pointer;
 }
-.rulesPageContainer .rules {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-}
-.rulesPageContainer .instructions {
-  margin: 1rem;
-}
-.rulesPageContainer .instructions li {
+.rulesPageContainer .rules li {
   color: rgb(34, 154, 159);
-  font-size: clamp(0.7rem, 2.5vw, 1.2rem);
-}
-.rulesPageContainer .instructions h1 {
-  color: rgb(229, 80, 16);
-  text-align: center;
+  font-size: clamp(0.5em, 2vw, 5em);
+  margin: 1em 0;
+  text-align: start;
 }
 
 .loserPageContainer {
@@ -197,19 +198,26 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  display: flex;
   color: rgba(255, 255, 224, 0.957);
   background: rgb(229, 80, 16);
-  text-align: center;
 }
 .loserPageContainer .loserPageContent {
-  margin: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.loserPageContainer h1 {
+.loserPageContainer .loserPageContent h1 {
   font-size: clamp(1rem, 10vw, 10rem);
+  height: 45%;
 }
-.loserPageContainer h2 {
+.loserPageContainer .loserPageContent h2 {
   font-size: clamp(0.7rem, 7vw, 7rem);
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.loserPageContainer .footer {
+  justify-content: space-between;
 }
 
 .gamePageContainer {
@@ -218,7 +226,6 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  justify-content: space-between;
 }
 .gamePageContainer .navbar {
   justify-content: flex-start;
@@ -227,6 +234,9 @@ body {
   font-size: clamp(1rem, 10vw, 10rem);
   color: rgb(34, 154, 159);
 }
+.gamePageContainer .footer {
+  justify-content: space-around;
+}
 .gamePageContainer .footer button {
   font-size: clamp(2rem, 6vw, 5rem);
   width: 40%;
@@ -234,8 +244,17 @@ body {
 .gamePageContainer .footer button:first-of-type {
   background: grey;
 }
-.gamePageContainer button:disabled {
+.gamePageContainer .footer button:disabled {
   opacity: 60%;
+}
+.gamePageContainer .currentWord {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.gamePageContainer .currentWord h1 {
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 @media (max-width: 600px) {
