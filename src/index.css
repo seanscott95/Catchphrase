@@ -4,17 +4,15 @@
   padding: 0;
   box-sizing: border-box;
   font-size: 16px;
+  width: 100%;
+  height: 100%;
 }
 
 body {
-  height: 100svh;
   background: rgba(255, 255, 224, 0.957);
-  font-size: clamp(0.7rem, 3vw, 1.2rem);
+  font-size: clamp(0.7rem, 2.5vw, 1.2rem);
   font-family: "Roboto Mono", monospace;
   border: 1rem solid rgb(229, 80, 16);
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .pageTitle {
@@ -23,16 +21,18 @@ body {
 
 .navbar, .footer {
   display: flex;
-  justify-content: space-evenly;
-  width: 95svw;
+  justify-content: center;
   align-items: center;
+  margin: 1rem;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 95%;
 }
 .navbar .navbarBtn, .footer .navbarBtn {
   border: none;
   background: rgb(34, 154, 159);
   color: rgba(255, 255, 224, 0.957);
-  margin: 0.5rem;
-  line-height: 1.5;
+  line-height: 1.3;
   border-radius: 5px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
   font-size: clamp(1rem, 5vw, 3rem);
@@ -40,6 +40,8 @@ body {
   min-width: -moz-fit-content;
   min-width: fit-content;
   width: 20%;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 .navbar .navbarBtn:hover, .footer .navbarBtn:hover {
   background: rgb(38, 197, 202);
@@ -51,25 +53,27 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100svw;
-  margin: 0 auto;
-  gap: 3rem;
-  height: 90svh;
-  width: 100%;
+  text-align: center;
+  text-align: center;
 }
-.homepageContainer h1, .homepageContainer button {
+.homepageContainer h1 {
   font-size: clamp(2rem, 10vw, 8rem);
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: 0.5em;
 }
 .homepageContainer .playBtn {
   border: none;
   background: rgb(34, 154, 159);
   color: rgba(255, 255, 224, 0.957);
-  margin: 0.5rem;
-  line-height: 1.5;
+  line-height: 1.3;
   border-radius: 5px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
-  width: 50svw;
+  width: 50%;
+  height: -moz-fit-content;
+  height: fit-content;
   max-width: 960px;
+  font-size: clamp(2rem, 10vw, 8rem);
 }
 .homepageContainer .playBtn:hover {
   background: rgb(38, 197, 202);
@@ -81,59 +85,61 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100svw;
-  margin: 0 auto;
-  gap: 3rem;
-  height: 90svh;
-  width: 100%;
-  justify-content: flex-start;
-  gap: 25%;
+  text-align: center;
 }
 .categoryPageContainer h1 {
   font-size: clamp(1rem, 6vw, 5rem);
 }
-.categoryPageContainer .categories {
-  display: grid;
-  grid-template-columns: repeat(4, 25%);
+.categoryPageContainer .categoriesPageContent {
+  display: flex;
   justify-content: center;
-  grid-gap: 1rem;
+  align-items: center;
 }
-.categoryPageContainer .categories .categoryBtn {
+.categoryPageContainer .categoriesPageContent .categoryBtnGroup {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 90%;
+  gap: 1em;
+}
+.categoryPageContainer .categoriesPageContent .categoryBtn {
   border: none;
   background: rgb(34, 154, 159);
   color: rgba(255, 255, 224, 0.957);
-  margin: 0.5rem;
-  line-height: 1.5;
+  line-height: 1.3;
   border-radius: 5px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
-  padding: 0.1em 0.3em;
-  font-size: clamp(0.5rem, 4vw, 4rem);
+  padding: 0.5em;
+  font-size: clamp(0.5rem, 3vw, 4rem);
   border-radius: 0.5em;
-  width: 100%;
-  margin: 0;
+  width: 21%;
+  height: -moz-fit-content;
+  height: fit-content;
 }
-.categoryPageContainer .categories .categoryBtn:hover {
+.categoryPageContainer .categoriesPageContent .categoryBtn:hover {
   background: rgb(38, 197, 202);
   cursor: pointer;
 }
-.categoryPageContainer .categories .categoryBtnUnclicked {
+.categoryPageContainer .categoriesPageContent .categoryBtnUnclicked {
   border: none;
   background: rgb(34, 154, 159);
   color: rgba(255, 255, 224, 0.957);
-  margin: 0.5rem;
-  line-height: 1.5;
+  line-height: 1.3;
   border-radius: 5px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
   padding: 0.1em 0.3em;
-  font-size: clamp(0.5rem, 4vw, 4rem);
+  font-size: clamp(0.5rem, 3vw, 4rem);
   border-radius: 0.5em;
-  width: 100%;
+  width: 20%;
   margin: 0;
   background: rgb(65, 105, 107);
   -webkit-text-decoration: red line-through;
           text-decoration: red line-through;
 }
-.categoryPageContainer .categories .categoryBtnUnclicked:hover {
+.categoryPageContainer .categoriesPageContent .categoryBtnUnclicked:hover {
   background: rgb(38, 197, 202);
   cursor: pointer;
 }
@@ -143,11 +149,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100svw;
-  margin: 0 auto;
-  gap: 3rem;
-  height: 90svh;
-  width: 100%;
+  text-align: center;
   justify-content: flex-start;
 }
 .rulesPageContainer h1 {
@@ -157,16 +159,16 @@ body {
   border: none;
   background: rgb(34, 154, 159);
   color: rgba(255, 255, 224, 0.957);
-  margin: 0.5rem;
-  line-height: 1.5;
+  line-height: 1.3;
   border-radius: 5px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
   background: rgb(229, 80, 16);
   font-size: clamp(1rem, 5vw, 3rem);
-  padding: 1rem;
-  margin: 2rem;
+  padding: 0.5rem;
   min-width: -moz-fit-content;
   min-width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 .rulesPageContainer button:hover {
   background: rgb(38, 197, 202);
@@ -182,7 +184,7 @@ body {
 }
 .rulesPageContainer .instructions li {
   color: rgb(34, 154, 159);
-  font-size: clamp(1rem, 3.5vw, 2.5rem);
+  font-size: clamp(0.7rem, 2.5vw, 1.2rem);
 }
 .rulesPageContainer .instructions h1 {
   color: rgb(229, 80, 16);
@@ -194,16 +196,14 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100svw;
-  margin: 0 auto;
-  gap: 3rem;
-  height: 90svh;
-  width: 100%;
-  width: 100svw;
-  height: 100svh;
+  text-align: center;
+  display: flex;
   color: rgba(255, 255, 224, 0.957);
   background: rgb(229, 80, 16);
   text-align: center;
+}
+.loserPageContainer .loserPageContent {
+  margin: 3rem;
 }
 .loserPageContainer h1 {
   font-size: clamp(1rem, 10vw, 10rem);
@@ -217,13 +217,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100svw;
-  margin: 0 auto;
-  gap: 3rem;
-  height: 90svh;
-  width: 100%;
+  text-align: center;
   justify-content: space-between;
-  width: 90svw;
 }
 .gamePageContainer .navbar {
   justify-content: flex-start;

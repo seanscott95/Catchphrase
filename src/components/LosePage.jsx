@@ -2,7 +2,7 @@
 const LosePage = ({ count, handleHomeBtnClick, handleStartGame }) => {
     return (
         <div className='loserPageContainer'>
-            <section>
+            <section className='loserPageContent'>
                 <h1>YOU LOSE</h1>
                 <h2>PHRASES: {count}</h2>
             </section>

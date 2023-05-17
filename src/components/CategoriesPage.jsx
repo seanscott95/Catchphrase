@@ -19,25 +19,27 @@ const CategoriesPage = ({ categories, setCategories, handleHomeBtnClick, handleN
                 <button onClick={handleNextBtnClick} className='navbarBtn'>NEXT</button>
             </section>
 
-            <section className='categories'>
-                {categories.map(item => (
-                    <>
-                        {item.include ?
-                            <button
-                                className="categoryBtn"
-                                key={item.name}
-                                onClick={handleCategoryBtn}
-                                value={item.name}
-                            >{item.name}</button>
-                            : <button
-                                className="categoryBtnUnclicked"
-                                key={item.name}
-                                onClick={handleCategoryBtn}
-                                value={item.name}
-                            >{item.name}</button>
-                        }
-                    </>
-                ))}
+            <section className='categoriesPageContent'>
+                <div className="categoryBtnGroup">
+                    {categories.map(item => (
+                        <>
+                            {item.include ?
+                                <button
+                                    className="categoryBtn"
+                                    key={item.name}
+                                    onClick={handleCategoryBtn}
+                                    value={item.name}
+                                >{item.name}</button>
+                                : <button
+                                    className="categoryBtnUnclicked"
+                                    key={item.name}
+                                    onClick={handleCategoryBtn}
+                                    value={item.name}
+                                >{item.name}</button>
+                            }
+                        </>
+                    ))}
+                </div>
             </section>
 
         </div>
