@@ -103,7 +103,6 @@ const MainLayout = () => {
     setRulesPage(false);
     setLosePage(false);
     setGamePage(false);
-    setCurrentWord('');
     setCount(0);
   };
 
