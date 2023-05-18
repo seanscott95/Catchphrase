@@ -141,19 +141,18 @@ const MainLayout = () => {
           handleBackBtnClick={handleBackBtnClick}
           handleStartGame={handleStartGame}
         /> : <></>}
-      {gamePage ? 
+      {gamePage ?
         <GamePageComp
-        setCount={setCount}
-        currentList={currentList}
-        handleHomeBtnClick={handleHomeBtnClick}
+          setCount={setCount}
+          currentList={currentList}
+          handleHomeBtnClick={handleHomeBtnClick}
         /> : <></>}
       {losePage ?
         <LosePageComp
           count={count}
           handleHomeBtnClick={handleHomeBtnClick}
           handleStartGame={handleStartGame}
-        /> : <></>
-      }
+        /> : <></>}
     </>
   );
 };

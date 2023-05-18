@@ -5,30 +5,29 @@ $primary: rgba(255, 255, 224, 0.957);
 $secondary: rgb(34, 154, 159);
 $border: rgb(229, 80, 16);
 $fontSize: clamp(.7rem, 2.5vw, 1.2rem);
-$medFontSize: clamp(1rem, 5vw, 3rem);
-$lrgFontSize: clamp(2rem, 10vw, 8rem);
+$medFontSize: clamp(.3rem, 3vw + .5rem, 3rem);
+$lrgFontSize: clamp(2rem, 5vw + 1rem, 8rem);
 $xxlrgFontSize: clamp(1rem, 10vw, 10rem);
 
-$categoryBtnFontSize: clamp(.5rem, 3vw, 4rem);
+$categoryBtnFontSize: clamp(.5rem, 3vw + .5rem, 4rem);
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-size: 16px;
-  width: 100%;
-  height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-
+html {
+    height: 100%;
+}
 body {
     background: $primary;
     font-size: $fontSize;
     font-family: 'Roboto Mono', monospace;
-    border: 1rem solid $border;
-}
-
-.pageTitle {
-    color: $secondary;
+    width: 100%;
+    height: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 
 // ------- Mixins -------
@@ -38,6 +37,7 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
+    min-height: 100svh;
 }
 
 @mixin button {
@@ -54,22 +54,19 @@ body {
 }
 
 // ------- Navbar --------
-.navbar, .footer {
+.navbar {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    margin: 1rem;
-    height: fit-content;
+    margin: .5rem;
     width: 95%;
-
-    .navbarBtn {
-        @include button;
-        font-size: $medFontSize;
-        padding: .1em .5em;
-        min-width: fit-content;
-        width: 20%;
-        height: fit-content;
-    }
+}
+.navbarBtn {
+    @include button;
+    font-size: $medFontSize;
+    padding: .1em .5em;
+    min-width: fit-content;
+    width: 20%;
 }
 
 // ------------ Pages -------------
@@ -77,51 +74,50 @@ body {
 .homepageContainer {
     @include container;
     text-align: center;
-
+    width: 100%;
+    border: 1em solid $border;
     h1 {
         font-size: $lrgFontSize;
-        height: fit-content;
         margin: .5em;
     }
-    
     .playBtn {
         @include button;
         width: 50%;
-        height: fit-content;
         max-width: 960px;
         font-size: $lrgFontSize;
     }
 }
 
 // ------ Categories ------
-
 .categoryPageContainer {
     @include container;
+    width: 100%;
+    border: 1em solid $border;
+    .navbar {
+        flex-wrap: wrap;
+    }
     h1 {
-        font-size: clamp(1rem, 6vw, 5rem);
-    };
-
+        font-size: clamp(1rem, 3vw + 1rem, 5rem);
+    }
     .categoriesPageContent {
         display: flex;
         justify-content: center;
         align-items: center;
-
         .categoryBtnGroup {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             align-items: center;
-            height: fit-content;
             width: 90%;
-            gap: 1em;
+            gap: .5em;
         }
         .categoryBtn {
             @include button;
-            padding: .5em;
+            padding: .25em;
             font-size: $categoryBtnFontSize;
             border-radius: .5em;
-            width: 21%;
-            height: fit-content;
+            width: 20%;
+            min-width: fit-content;
         }
         .categoryBtnUnclicked {
             @include button;
@@ -139,38 +135,38 @@ body {
 // ------- Rules --------
 .rulesPageContainer {
     @include container;
-    height: fit-content;
-
+    width: 100%;
+    border: 1em solid $border;
     h1 {
-        font-size: clamp(1rem, 6vw, 5rem);
+        font-size: clamp(1rem, 3vw + 1rem, 5rem);
     }
     .rules {
         display: flex;
-        gap: 1.5rem;
         align-items: center;
-
+        gap: min(2em, 3rem);
         h1 {
             color: $border;
         }
         button {
             @include button;
             background: $border;
-            font-size: clamp(1rem, 3vw, 3rem);
+            font-size: clamp(.5rem, 2vw + .5rem, 3rem);
             padding: .5em 1em;
-            margin: 0 1em;
+            margin: 0 .5em;
             min-width: fit-content;
             width: 20%;
-            height: fit-content;
+        }
+        ul {
+            margin: .5em;
         }
         li {
+            font-size: max(2vw, 2.5vh);
             color: $secondary;
-            font-size: clamp(.5em, 2vw, 5em);
-            margin: 1em 0;
+            margin: .25em 0;
             text-align: start;
             list-style-type: '* ';
         }
     }
-    
 }
 
 // ------- Lose Page ------
@@ -178,42 +174,37 @@ body {
     @include container;
     color: $primary;
     background: $border;
-    
+    width: 100%;
     .loserPageContent {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
         h1 {
             font-size: $xxlrgFontSize;
-            height: 45%;
         }
         h2 {
             font-size: clamp(.7rem, 7vw, 7rem);
-            height: fit-content;
         }
     }
-    .footer {
-        justify-content: space-between;
+    .navbar {
+        padding: 1em 0;
     }
 }
 
 // ------ Rules Page -------
 .gamePageContainer {
     @include container;
-
-    .navbar {
-        justify-content: flex-start;
-    }
+    width: 100%;
+    border: 1em solid $border;
     h1 {
-        font-size: $xxlrgFontSize;
+        font-size: $lrgFontSize;
         color: $secondary;
     }
     .footer {
-        justify-content: space-around;
+        width: 100%;
+        margin: 1em;
         button {
-            font-size: clamp(2rem, 6vw, 5rem);
             width: 40%;
+            min-width: fit-content;
+            font-size: clamp(2rem, 6vw, 5rem);
+            margin: 1rem;
         }
         button:first-of-type {
             background: grey;
@@ -226,20 +217,15 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
-        h1 {
-            height: fit-content;
-        }
     }
+}
+.pageTitle {
+    color: $secondary;
 }
 
 // ---------- Responsiveness ----------
 @media (max-width: 600px) {
     .categories {
         grid-template-columns: repeat(3, 30%);
-    }
-
-    .rules {
-        flex-direction: column;
-        width: 90%;
     }
 }

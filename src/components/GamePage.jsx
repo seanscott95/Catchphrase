@@ -26,8 +26,8 @@ const GamePage = ({ setCount, currentList, handleHomeBtnClick }) => {
             <section className='navbar'>
                 <button onClick={handleHomeBtnClick} className='navbarBtn'>HOME</button>
             </section>
-            <section className='currentWord'>
-                <h1>{currentWord}</h1>
+            <section className="currentWord">
+                    <h1>{currentWord}</h1>
             </section>
             <section className='footer'>
                 <button onClick={handleGameButtons} disabled={disabled} className='navbarBtn'>SKIP</button>

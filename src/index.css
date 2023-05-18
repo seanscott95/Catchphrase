@@ -3,8 +3,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-size: 16px;
-  width: 100%;
+}
+
+html {
   height: 100%;
 }
 
@@ -12,38 +13,35 @@ body {
   background: rgba(255, 255, 224, 0.957);
   font-size: clamp(0.7rem, 2.5vw, 1.2rem);
   font-family: "Roboto Mono", monospace;
-  border: 1rem solid rgb(229, 80, 16);
+  width: 100%;
+  height: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
-.pageTitle {
-  color: rgb(34, 154, 159);
-}
-
-.navbar, .footer {
+.navbar {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  margin: 1rem;
-  height: -moz-fit-content;
-  height: fit-content;
+  margin: 0.5rem;
   width: 95%;
 }
-.navbar .navbarBtn, .footer .navbarBtn {
+
+.navbarBtn {
   border: none;
   background: rgb(34, 154, 159);
   color: rgba(255, 255, 224, 0.957);
   line-height: 1.3;
   border-radius: 5px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
-  font-size: clamp(1rem, 5vw, 3rem);
+  font-size: clamp(0.3rem, 3vw + 0.5rem, 3rem);
   padding: 0.1em 0.5em;
   min-width: -moz-fit-content;
   min-width: fit-content;
   width: 20%;
-  height: -moz-fit-content;
-  height: fit-content;
 }
-.navbar .navbarBtn:hover, .footer .navbarBtn:hover {
+.navbarBtn:hover {
   background: rgb(38, 197, 202);
   cursor: pointer;
 }
@@ -54,12 +52,13 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
+  min-height: 100svh;
   text-align: center;
+  width: 100%;
+  border: 1em solid rgb(229, 80, 16);
 }
 .homepageContainer h1 {
-  font-size: clamp(2rem, 10vw, 8rem);
-  height: -moz-fit-content;
-  height: fit-content;
+  font-size: clamp(2rem, 5vw + 1rem, 8rem);
   margin: 0.5em;
 }
 .homepageContainer .playBtn {
@@ -70,10 +69,8 @@ body {
   border-radius: 5px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
   width: 50%;
-  height: -moz-fit-content;
-  height: fit-content;
   max-width: 960px;
-  font-size: clamp(2rem, 10vw, 8rem);
+  font-size: clamp(2rem, 5vw + 1rem, 8rem);
 }
 .homepageContainer .playBtn:hover {
   background: rgb(38, 197, 202);
@@ -86,9 +83,15 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
+  min-height: 100svh;
+  width: 100%;
+  border: 1em solid rgb(229, 80, 16);
+}
+.categoryPageContainer .navbar {
+  flex-wrap: wrap;
 }
 .categoryPageContainer h1 {
-  font-size: clamp(1rem, 6vw, 5rem);
+  font-size: clamp(1rem, 3vw + 1rem, 5rem);
 }
 .categoryPageContainer .categoriesPageContent {
   display: flex;
@@ -100,10 +103,8 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  height: -moz-fit-content;
-  height: fit-content;
   width: 90%;
-  gap: 1em;
+  gap: 0.5em;
 }
 .categoryPageContainer .categoriesPageContent .categoryBtn {
   border: none;
@@ -112,12 +113,12 @@ body {
   line-height: 1.3;
   border-radius: 5px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
-  padding: 0.5em;
-  font-size: clamp(0.5rem, 3vw, 4rem);
+  padding: 0.25em;
+  font-size: clamp(0.5rem, 3vw + 0.5rem, 4rem);
   border-radius: 0.5em;
-  width: 21%;
-  height: -moz-fit-content;
-  height: fit-content;
+  width: 20%;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
 }
 .categoryPageContainer .categoriesPageContent .categoryBtn:hover {
   background: rgb(38, 197, 202);
@@ -131,7 +132,7 @@ body {
   border-radius: 5px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
   padding: 0.1em 0.3em;
-  font-size: clamp(0.5rem, 3vw, 4rem);
+  font-size: clamp(0.5rem, 3vw + 0.5rem, 4rem);
   border-radius: 0.5em;
   width: 20%;
   margin: 0;
@@ -150,16 +151,17 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  height: -moz-fit-content;
-  height: fit-content;
+  min-height: 100svh;
+  width: 100%;
+  border: 1em solid rgb(229, 80, 16);
 }
 .rulesPageContainer h1 {
-  font-size: clamp(1rem, 6vw, 5rem);
+  font-size: clamp(1rem, 3vw + 1rem, 5rem);
 }
 .rulesPageContainer .rules {
   display: flex;
-  gap: 1.5rem;
   align-items: center;
+  gap: min(2em, 3rem);
 }
 .rulesPageContainer .rules h1 {
   color: rgb(229, 80, 16);
@@ -172,23 +174,24 @@ body {
   border-radius: 5px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
   background: rgb(229, 80, 16);
-  font-size: clamp(1rem, 3vw, 3rem);
+  font-size: clamp(0.5rem, 2vw + 0.5rem, 3rem);
   padding: 0.5em 1em;
-  margin: 0 1em;
+  margin: 0 0.5em;
   min-width: -moz-fit-content;
   min-width: fit-content;
   width: 20%;
-  height: -moz-fit-content;
-  height: fit-content;
 }
 .rulesPageContainer .rules button:hover {
   background: rgb(38, 197, 202);
   cursor: pointer;
 }
+.rulesPageContainer .rules ul {
+  margin: 0.5em;
+}
 .rulesPageContainer .rules li {
+  font-size: max(2vw, 2.5vh);
   color: rgb(34, 154, 159);
-  font-size: clamp(0.5em, 2vw, 5em);
-  margin: 1em 0;
+  margin: 0.25em 0;
   text-align: start;
   list-style-type: "* ";
 }
@@ -199,26 +202,19 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
+  min-height: 100svh;
   color: rgba(255, 255, 224, 0.957);
   background: rgb(229, 80, 16);
-}
-.loserPageContainer .loserPageContent {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
 }
 .loserPageContainer .loserPageContent h1 {
   font-size: clamp(1rem, 10vw, 10rem);
-  height: 45%;
 }
 .loserPageContainer .loserPageContent h2 {
   font-size: clamp(0.7rem, 7vw, 7rem);
-  height: -moz-fit-content;
-  height: fit-content;
 }
-.loserPageContainer .footer {
-  justify-content: space-between;
+.loserPageContainer .navbar {
+  padding: 1em 0;
 }
 
 .gamePageContainer {
@@ -227,20 +223,24 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-}
-.gamePageContainer .navbar {
-  justify-content: flex-start;
+  min-height: 100svh;
+  width: 100%;
+  border: 1em solid rgb(229, 80, 16);
 }
 .gamePageContainer h1 {
-  font-size: clamp(1rem, 10vw, 10rem);
+  font-size: clamp(2rem, 5vw + 1rem, 8rem);
   color: rgb(34, 154, 159);
 }
 .gamePageContainer .footer {
-  justify-content: space-around;
+  width: 100%;
+  margin: 1em;
 }
 .gamePageContainer .footer button {
-  font-size: clamp(2rem, 6vw, 5rem);
   width: 40%;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  font-size: clamp(2rem, 6vw, 5rem);
+  margin: 1rem;
 }
 .gamePageContainer .footer button:first-of-type {
   background: grey;
@@ -253,17 +253,13 @@ body {
   justify-content: center;
   align-items: center;
 }
-.gamePageContainer .currentWord h1 {
-  height: -moz-fit-content;
-  height: fit-content;
+
+.pageTitle {
+  color: rgb(34, 154, 159);
 }
 
 @media (max-width: 600px) {
   .categories {
     grid-template-columns: repeat(3, 30%);
-  }
-  .rules {
-    flex-direction: column;
-    width: 90%;
   }
 }/*# sourceMappingURL=index.css.map */
