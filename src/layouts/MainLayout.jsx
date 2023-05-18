@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import HomepageComp from "../components/Homepage";
 import CategoriesPageComp from "../components/CategoriesPage";
 import RulesPageComp from "../components/RulesPage";
@@ -74,6 +74,27 @@ const MainLayout = () => {
     },
   ]);
 
+  const timeoutQuiz = () => {
+    setGamePage(false);
+    setHomepage(false);
+    setCategoriesPage(false);
+    setRulesPage(false);
+    setLosePage(false);
+    setLosePage(true);
+  };
+
+  // Starts quiz for 60 seconds when timer is truthy
+  const [timer, setTimer] = useState(false);
+  useEffect(() => {
+    let timeId;
+    if (timer) {
+      timeId = setTimeout(timeoutQuiz, 60000);
+    };
+    return () => {
+      clearTimeout(timeId);
+    };
+  }, [timer]);
+
   const handleStartGame = () => {
     setCount(0);
     setHomepage(false);
@@ -88,13 +109,10 @@ const MainLayout = () => {
         return obj.list
       };
     }).flat().sort(() => Math.random() - 0.5);
-    setCurrentList(list)
+    setCurrentList(list);
 
-    // Ends the game in 60 seconds
-    setTimeout(() => {
-      setGamePage(false);
-      setLosePage(true);
-    }, 60000);
+    // Starts the timer
+    setTimer(true);
   };
 
   const handleHomeBtnClick = () => {
@@ -104,6 +122,7 @@ const MainLayout = () => {
     setLosePage(false);
     setGamePage(false);
     setCount(0);
+    setTimer(false);
   };
 
   const handleNextBtnClick = () => {
