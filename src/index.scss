@@ -39,7 +39,6 @@ body {
     text-align: center;
     min-height: 100svh;
 }
-
 @mixin button {
     border: none;
     background: $secondary;
@@ -142,19 +141,39 @@ body {
     }
     .rules {
         display: flex;
+        justify-content: space-between;
         align-items: center;
         gap: min(2em, 3rem);
         h1 {
             color: $border;
         }
-        button {
-            @include button;
-            background: $border;
-            font-size: clamp(.5rem, 2vw + .5rem, 3rem);
-            padding: .5em 1em;
-            margin: 0 .5em;
+        .instructions {
+            width: 60vw;
+        }
+        .rulesBtnGroup {
+            display: flex;
+            flex-direction: column;
+            width: 40%;
+            gap: .5em;
             min-width: fit-content;
-            width: 20%;
+            button {
+                @include button;
+                background: $secondary;
+                font-size: clamp(.5rem, 2vw + .5em, 3rem);
+                padding: .5em 1em;
+                margin: 0 .5em;
+                width: 95%;
+                &:hover {
+                    background: $border;
+                }
+                &:active {
+                    background:rgb(247, 86, 17);
+                }
+
+            }
+            .active {
+                background: $border;
+            }
         }
         ul {
             margin: .5em;
