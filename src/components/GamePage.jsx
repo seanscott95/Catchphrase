@@ -1,8 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const GamePage = ({ setCount, currentList, handleHomeBtnClick }) => {
+const GamePage = ({ setCount, currentList, handlePageChange, timer }) => {
     const [currentWord, setCurrentWord] = useState(currentList[0] || '');
     const [disabled, setDisabled] = useState('');
+
+    // Starts quiz for 60 seconds when timer is truthy
+    useEffect(() => {
+        let timeId;
+        if (timer) {
+            timeId = setTimeout(() => handlePageChange('losePage'), 3000);
+        };
+        return () => {
+            clearTimeout(timeId);
+        };
+    }, [timer]);
 
     const handleGameButtons = () => {
         // Disables buttons for two seconds
@@ -24,10 +35,10 @@ const GamePage = ({ setCount, currentList, handleHomeBtnClick }) => {
     return (
         <div className='gamePageContainer'>
             <section className='navbar'>
-                <button onClick={handleHomeBtnClick} className='navbarBtn'>HOME</button>
+                <button onClick={() => handlePageChange('homepage')} className='navbarBtn'>HOME</button>
             </section>
             <section className="currentWord">
-                    <h1>{currentWord}</h1>
+                <h1>{currentWord}</h1>
             </section>
             <section className='footer'>
                 <button onClick={handleGameButtons} disabled={disabled} className='navbarBtn'>SKIP</button>

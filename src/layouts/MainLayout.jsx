@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import HomepageComp from "../components/Homepage";
 import CategoriesPageComp from "../components/CategoriesPage";
 import RulesPageComp from "../components/RulesPage";
@@ -7,11 +7,7 @@ import LosePageComp from "../components/LosePage";
 import words from "../assets/Words.json";
 
 const MainLayout = () => {
-  const [homepage, setHomepage] = useState(true);
-  const [categoriesPage, setCategoriesPage] = useState(false);
-  const [rulesPage, setRulesPage] = useState(false);
-  const [gamePage, setGamePage] = useState(false)
-  const [losePage, setLosePage] = useState(false);
+  const [page, setPage] = useState('homepage');
 
   const [count, setCount] = useState(0);
   const [currentList, setCurrentList] = useState('');
@@ -74,39 +70,16 @@ const MainLayout = () => {
     },
   ]);
 
-  const timeoutQuiz = () => {
-    setGamePage(false);
-    setHomepage(false);
-    setCategoriesPage(false);
-    setRulesPage(false);
-    setLosePage(false);
-    setLosePage(true);
-  };
-
-  // Starts quiz for 60 seconds when timer is truthy
   const [timer, setTimer] = useState(false);
-  useEffect(() => {
-    let timeId;
-    if (timer) {
-      timeId = setTimeout(timeoutQuiz, 60000);
-    };
-    return () => {
-      clearTimeout(timeId);
-    };
-  }, [timer]);
 
   const handleStartGame = () => {
     setCount(0);
-    setHomepage(false);
-    setCategoriesPage(false);
-    setRulesPage(false);
-    setLosePage(false);
-    setGamePage(true);
+    setPage('gamesPage');
 
     // Creates a list of shuffled words for selected categories
     const list = categories.map((obj) => {
       if (obj.include === true) {
-        return obj.list
+        return obj.list;
       };
     }).flat().sort(() => Math.random() - 0.5);
     setCurrentList(list);
@@ -115,61 +88,47 @@ const MainLayout = () => {
     setTimer(true);
   };
 
-  const handleHomeBtnClick = () => {
-    setHomepage(true);
-    setCategoriesPage(false);
-    setRulesPage(false);
-    setLosePage(false);
-    setGamePage(false);
-    setCount(0);
-    setTimer(false);
-  };
-
-  const handleNextBtnClick = () => {
-    setHomepage(false);
-    setCategoriesPage(false);
-    setRulesPage(true);
-    setLosePage(false);
-    setGamePage(false);
-  };
-
-  const handleBackBtnClick = () => {
-    setHomepage(false);
-    setCategoriesPage(true);
-    setRulesPage(false);
-    setLosePage(false);
-    setGamePage(false);
+  const handlePageChange = (page) => {
+    setPage(page);
+    if (page === 'gamesPage') {
+      return;
+    } else if (page === 'losePage') {
+      setTimer(false);
+    } else {
+      setTimer(false);
+      setCount(0);
+    };
   };
 
   return (
     <>
-      {homepage ?
+      {page === 'homepage' ?
         <HomepageComp
-          setHomepage={setHomepage}
-          setCategoriesPage={setCategoriesPage}
+        handlePageChange={handlePageChange}
         /> : <></>}
-      {categoriesPage ?
+      {page === 'categoriesPage' ?
         <CategoriesPageComp
           categories={categories}
           setCategories={setCategories}
-          handleHomeBtnClick={handleHomeBtnClick}
-          handleNextBtnClick={handleNextBtnClick}
+          handlePageChange={handlePageChange}
         /> : <></>}
-      {rulesPage ?
+      {page === 'rulesPage' ?
         <RulesPageComp
-          handleBackBtnClick={handleBackBtnClick}
+          handlePageChange={handlePageChange}
           handleStartGame={handleStartGame}
         /> : <></>}
-      {gamePage ?
+      {page === 'gamesPage' ?
         <GamePageComp
           setCount={setCount}
           currentList={currentList}
-          handleHomeBtnClick={handleHomeBtnClick}
+          handlePageChange={handlePageChange}
+          setTimer={setTimer}
+          timer={timer}
         /> : <></>}
-      {losePage ?
+      {page === 'losePage' ?
         <LosePageComp
           count={count}
-          handleHomeBtnClick={handleHomeBtnClick}
+          handlePageChange={handlePageChange}
           handleStartGame={handleStartGame}
         /> : <></>}
     </>

@@ -1,4 +1,4 @@
-const CategoriesPage = ({ categories, setCategories, handleHomeBtnClick, handleNextBtnClick }) => {
+const CategoriesPage = ({ categories, setCategories, handlePageChange }) => {
 
     const handleCategoryBtn = (e) => {
         const category = e.target.value;
@@ -14,9 +14,9 @@ const CategoriesPage = ({ categories, setCategories, handleHomeBtnClick, handleN
     return (
         <div className='categoryPageContainer'>
             <section className='navbar'>
-                <button onClick={handleHomeBtnClick} className='navbarBtn'>HOME</button>
+                <button onClick={() => handlePageChange('homepage')} className='navbarBtn'>HOME</button>
                 <h1 className='pageTitle'>CATEGORIES</h1>
-                <button onClick={handleNextBtnClick} className='navbarBtn'>NEXT</button>
+                <button onClick={() => handlePageChange('rulesPage')} className='navbarBtn'>NEXT</button>
             </section>
 
             <section className='categoriesPageContent'>
@@ -41,7 +41,6 @@ const CategoriesPage = ({ categories, setCategories, handleHomeBtnClick, handleN
                     ))}
                 </div>
             </section>
-
         </div>
     );
 };

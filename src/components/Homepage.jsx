@@ -1,13 +1,8 @@
-const Homepage = ({ setHomepage, setCategoriesPage }) => {
-  const playBtnClickHandler = () => {
-    setHomepage(prev => !prev);
-    setCategoriesPage(prev => !prev);
-  };
-
+const Homepage = ({ handlePageChange }) => {
   return (
     <div className='homepageContainer'>
       <h1 className='pageTitle'>CATCH PHRASE</h1>
-      <button className='playBtn' onClick={playBtnClickHandler}>PLAY</button>
+      <button className='playBtn' onClick={() => handlePageChange('categoriesPage')}>PLAY</button>
     </div>
   );
 };

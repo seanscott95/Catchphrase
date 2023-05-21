@@ -1,8 +1,8 @@
-const RulesPage = ({ handleBackBtnClick, handleStartGame }) => {
+const RulesPage = ({ handlePageChange, handleStartGame }) => {
     return (
         <div className='rulesPageContainer'>
             <section className='navbar'>
-                <button onClick={handleBackBtnClick} className='navbarBtn'>BACK</button>
+                <button onClick={() => handlePageChange('categoriesPage')} className='navbarBtn'>BACK</button>
                 <h1 className='pageTitle'>RULES</h1>
                 <button onClick={handleStartGame} className='navbarBtn'>PLAY</button>
             </section>
