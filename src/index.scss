@@ -189,12 +189,12 @@ body {
 }
 
 // ------- Lose Page ------
-.loserPageContainer {
+.loserPageContainer, .winnerPageContainer {
     @include container;
     color: $primary;
     background: $border;
     width: 100%;
-    .loserPageContent {
+    .loserPageContent, .winnerPageContent {
         h1 {
             font-size: $xxlrgFontSize;
         }
@@ -205,6 +205,9 @@ body {
     .navbar {
         padding: 1em 0;
     }
+}
+.winnerPageContainer {
+    background: green;
 }
 
 // ------ Rules Page -------

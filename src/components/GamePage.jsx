@@ -1,14 +1,21 @@
 import { useState, useEffect } from "react";
 
-const GamePage = ({ setCount, currentList, handlePageChange, timer }) => {
+const GamePage = ({ setCount, currentList, handlePageChange, timer, setTimer, rules }) => {
     const [currentWord, setCurrentWord] = useState(currentList[0] || '');
     const [disabled, setDisabled] = useState('');
 
     // Starts quiz for 60 seconds when timer is truthy
     useEffect(() => {
         let timeId;
+        
         if (timer) {
-            timeId = setTimeout(() => handlePageChange('losePage'), 3000);
+            if (rules === 'HOT POTATO') {
+                timeId = setTimeout(() => handlePageChange('losePage'), 60000);
+            } else if (rules === 'HIGHSCORE') {
+                timeId = setTimeout(() => handlePageChange('winnerPage'), 60000);
+            } else {
+                timeId = setTimeout(() => handlePageChange('winnerPage'), 12000);
+            };
         };
         return () => {
             clearTimeout(timeId);
@@ -29,7 +36,9 @@ const GamePage = ({ setCount, currentList, handlePageChange, timer }) => {
 
     const handleCorrectBtn = () => {
         handleGameButtons();
+        setTimer(false);
         setCount(count => count + 1);
+        setTimer(true);
     };
 
     return (

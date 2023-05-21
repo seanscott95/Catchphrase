@@ -4,6 +4,7 @@ import CategoriesPageComp from "../components/CategoriesPage";
 import RulesPageComp from "../components/RulesPage";
 import GamePageComp from "../components/GamePage";
 import LosePageComp from "../components/LosePage";
+import WinnerPageComp from "../components/WinnerPage";
 import words from "../assets/Words.json";
 
 const MainLayout = () => {
@@ -11,6 +12,8 @@ const MainLayout = () => {
 
   const [count, setCount] = useState(0);
   const [currentList, setCurrentList] = useState('');
+
+  const [rules, setRules] = useState('HOT POTATO');
 
   const [categories, setCategories] = useState([
     {
@@ -92,7 +95,7 @@ const MainLayout = () => {
     setPage(page);
     if (page === 'gamesPage') {
       return;
-    } else if (page === 'losePage') {
+    } else if (page === 'losePage' || 'winnerPage') {
       setTimer(false);
     } else {
       setTimer(false);
@@ -116,6 +119,8 @@ const MainLayout = () => {
         <RulesPageComp
           handlePageChange={handlePageChange}
           handleStartGame={handleStartGame}
+          rules={rules}
+          setRules={setRules}
         /> : <></>}
       {page === 'gamesPage' ?
         <GamePageComp
@@ -124,9 +129,16 @@ const MainLayout = () => {
           handlePageChange={handlePageChange}
           setTimer={setTimer}
           timer={timer}
+          rules={rules}
         /> : <></>}
       {page === 'losePage' ?
         <LosePageComp
+          count={count}
+          handlePageChange={handlePageChange}
+          handleStartGame={handleStartGame}
+        /> : <></>}
+      {page === 'winnerPage' ?
+        <WinnerPageComp
           count={count}
           handlePageChange={handlePageChange}
           handleStartGame={handleStartGame}

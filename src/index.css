@@ -215,7 +215,7 @@ body {
   list-style-type: "* ";
 }
 
-.loserPageContainer {
+.loserPageContainer, .winnerPageContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -226,14 +226,18 @@ body {
   background: rgb(229, 80, 16);
   width: 100%;
 }
-.loserPageContainer .loserPageContent h1 {
+.loserPageContainer .loserPageContent h1, .loserPageContainer .winnerPageContent h1, .winnerPageContainer .loserPageContent h1, .winnerPageContainer .winnerPageContent h1 {
   font-size: clamp(1rem, 10vw, 10rem);
 }
-.loserPageContainer .loserPageContent h2 {
+.loserPageContainer .loserPageContent h2, .loserPageContainer .winnerPageContent h2, .winnerPageContainer .loserPageContent h2, .winnerPageContainer .winnerPageContent h2 {
   font-size: clamp(0.7rem, 7vw, 7rem);
 }
-.loserPageContainer .navbar {
+.loserPageContainer .navbar, .winnerPageContainer .navbar {
   padding: 1em 0;
+}
+
+.winnerPageContainer {
+  background: green;
 }
 
 .gamePageContainer {

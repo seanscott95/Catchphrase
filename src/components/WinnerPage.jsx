@@ -1,9 +1,9 @@
-const LosePage = ({ count, handlePageChange, handleStartGame }) => {
+const WinnerPage = ({ count, handlePageChange, handleStartGame }) => {
     return (
-        <div className='loserPageContainer'>
-            <section className='loserPageContent'>
+        <div className='winnerPageContainer'>
+            <section className='winnerPageContent'>
                 <div>
-                    <h1>YOU LOSE</h1>
+                    <h1>YOU WIN</h1>
                     <h2>PHRASES: {count}</h2>
                 </div>
             </section>
@@ -15,4 +15,4 @@ const LosePage = ({ count, handlePageChange, handleStartGame }) => {
     );
 };
 
-export default LosePage;
+export default WinnerPage;

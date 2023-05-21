@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-const RulesPage = ({ handlePageChange, handleStartGame }) => {
-    const [rules, setRules] = useState('HOT POTATO');
+const RulesPage = ({ handlePageChange, handleStartGame, rules, setRules }) => {
     const rulesListTemplate = [
         {
             title: 'HOT POTATO',
@@ -56,10 +55,15 @@ const RulesPage = ({ handlePageChange, handleStartGame }) => {
         };
     };
 
+    const handleBackBtn = () => {
+        setRules('HOT POTATO');
+        handlePageChange('categoriesPage');
+    };
+
     return (
         <div className='rulesPageContainer'>
             <section className='navbar'>
-                <button onClick={() => handlePageChange('categoriesPage')} className='navbarBtn'>BACK</button>
+                <button onClick={handleBackBtn} className='navbarBtn'>BACK</button>
                 <h1 className='pageTitle'>RULES</h1>
                 <button onClick={handleStartGame} className='navbarBtn'>PLAY</button>
             </section>
