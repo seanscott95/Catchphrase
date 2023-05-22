@@ -13,6 +13,7 @@ const GamePage =
     }) => {
         const [currentWord, setCurrentWord] = useState(currentList[0] || '');
         const [disabled, setDisabled] = useState('');
+        const [width, setWidth] = useState('1%');
 
         const handleGameButtons = () => {
             // Disables buttons for two seconds
@@ -29,9 +30,10 @@ const GamePage =
         const handleCorrectBtn = () => {
             handleGameButtons();
             setCount(count => count + 1);
-            // Resets the timer during streak rules
+            // Resets the timer and progress bar during streak rules
             if (rules === 'STREAK') {
                 setTimerStreak(false);
+                setWidth('1%');
             };
         };
 
@@ -73,7 +75,6 @@ const GamePage =
             };
         }, [timer, timerStreak]);
 
-        const [width, setWidth] = useState('1%');
         useEffect(() => {
             // Converts the width that is a string with a percent into a number
             const split = width.split('%');
