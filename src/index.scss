@@ -103,20 +103,17 @@ body {
     @include container;
     width: 100%;
     border: 1em solid $border;
-
+    gap: 2em;
     .navbar {
         flex-wrap: wrap;
     }
-
     h1 {
         font-size: clamp(1rem, 3vw + 1rem, 5rem);
     }
-
     .categoriesPageContent {
         display: flex;
         justify-content: center;
         align-items: center;
-
         .categoryBtnGroup {
             display: flex;
             flex-wrap: wrap;
@@ -125,7 +122,6 @@ body {
             width: 90%;
             gap: .5em;
         }
-
         .categoryBtn {
             @include button;
             padding: .25em;
@@ -134,7 +130,6 @@ body {
             width: 20%;
             min-width: fit-content;
         }
-
         .categoryBtnUnclicked {
             @include button;
             padding: .1em .3em;
@@ -153,32 +148,30 @@ body {
     @include container;
     width: 100%;
     border: 1em solid $border;
-
+    height: 100svh;
     h1 {
         font-size: clamp(1rem, 3vw + 1rem, 5rem);
     }
-
     .rules {
         display: flex;
         justify-content: space-between;
         align-items: center;
         gap: min(2em, 3rem);
-
         h1 {
             color: $border;
         }
-
         .instructions {
             width: 60vw;
+            h1 {
+                font-size: clamp(1rem, 2vw + 1rem, 5rem);
+            }
         }
-
         .rulesBtnGroup {
             display: flex;
             flex-direction: column;
             width: 40%;
             gap: .5em;
             min-width: fit-content;
-
             button {
                 @include button;
                 background: $secondary;
@@ -186,26 +179,20 @@ body {
                 padding: .5em 1em;
                 margin: 0 .5em;
                 width: 95%;
-
                 &:hover {
                     background: $border;
                 }
-
                 &:active {
                     background: rgb(247, 86, 17);
                 }
-
             }
-
             .active {
                 background: $border;
             }
         }
-
         ul {
             margin: .5em;
         }
-
         li {
             font-size: max(2vw, 2.5vh);
             color: $secondary;
