@@ -46,7 +46,7 @@ const GamePage =
             // Startes the timer for hot potato and high score games
             if (timer) {
                 // 60 seconds
-                timeLength = 6000;
+                timeLength = 60000;
                 if (rules === 'HOT POTATO') {
                     timeId = setTimeout(() => handlePageChange('losePage'), timeLength);
                 };
@@ -81,7 +81,7 @@ const GamePage =
             const percent = Number(split[0]);
             let percentTimes;
             // Value will times the current width every 5ms, values convert to 12s and 60s
-            percentTimes = rules === 'STREAK' ? .053 : .105;
+            percentTimes = rules === 'STREAK' ? .053 : .0105;
 
             // Every 5 miliseconds the width will be increased
             const interval = setInterval(() => {
