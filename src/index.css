@@ -215,7 +215,8 @@ body {
   list-style-type: "* ";
 }
 
-.loserPageContainer, .winnerPageContainer {
+.loserPageContainer,
+.winnerPageContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -226,13 +227,20 @@ body {
   background: rgb(229, 80, 16);
   width: 100%;
 }
-.loserPageContainer .loserPageContent h1, .loserPageContainer .winnerPageContent h1, .winnerPageContainer .loserPageContent h1, .winnerPageContainer .winnerPageContent h1 {
+.loserPageContainer .loserPageContent h1,
+.loserPageContainer .winnerPageContent h1,
+.winnerPageContainer .loserPageContent h1,
+.winnerPageContainer .winnerPageContent h1 {
   font-size: clamp(1rem, 10vw, 10rem);
 }
-.loserPageContainer .loserPageContent h2, .loserPageContainer .winnerPageContent h2, .winnerPageContainer .loserPageContent h2, .winnerPageContainer .winnerPageContent h2 {
+.loserPageContainer .loserPageContent h2,
+.loserPageContainer .winnerPageContent h2,
+.winnerPageContainer .loserPageContent h2,
+.winnerPageContainer .winnerPageContent h2 {
   font-size: clamp(0.7rem, 7vw, 7rem);
 }
-.loserPageContainer .navbar, .winnerPageContainer .navbar {
+.loserPageContainer .navbar,
+.winnerPageContainer .navbar {
   padding: 1em 0;
 }
 
@@ -249,6 +257,7 @@ body {
   min-height: 100svh;
   width: 100%;
   border: 1em solid rgb(229, 80, 16);
+  height: calc(100svh - 1em);
 }
 .gamePageContainer h1 {
   font-size: clamp(2rem, 5vw + 1rem, 8rem);
@@ -275,6 +284,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.gamePageContainer .progressBarContainer {
+  width: 100%;
+}
+.gamePageContainer .progressBarContainer .progressBar {
+  max-width: 100%;
+  min-width: 0.1em;
+  background: rgb(229, 80, 16);
+  height: 1em;
 }
 
 .pageTitle {

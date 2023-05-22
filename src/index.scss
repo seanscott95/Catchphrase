@@ -11,14 +11,20 @@ $xxlrgFontSize: clamp(1rem, 10vw, 10rem);
 
 $categoryBtnFontSize: clamp(.5rem, 3vw + .3rem, 4rem);
 
+// :root {
+//     --width: 10;
+// }
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 html {
     height: 100%;
 }
+
 body {
     background: $primary;
     font-size: $fontSize;
@@ -39,6 +45,7 @@ body {
     text-align: center;
     min-height: 100svh;
 }
+
 @mixin button {
     border: none;
     background: $secondary;
@@ -46,6 +53,7 @@ body {
     line-height: 1.3;
     border-radius: 5px;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+
     &:hover {
         background: rgb(38, 197, 202);
         cursor: pointer;
@@ -60,6 +68,7 @@ body {
     margin: .5rem;
     width: 95%;
 }
+
 .navbarBtn {
     @include button;
     font-size: $medFontSize;
@@ -75,10 +84,12 @@ body {
     text-align: center;
     width: 100%;
     border: 1em solid $border;
+
     h1 {
         font-size: $lrgFontSize;
         margin: .5em;
     }
+
     .playBtn {
         @include button;
         width: 50%;
@@ -92,16 +103,20 @@ body {
     @include container;
     width: 100%;
     border: 1em solid $border;
+
     .navbar {
         flex-wrap: wrap;
     }
+
     h1 {
         font-size: clamp(1rem, 3vw + 1rem, 5rem);
     }
+
     .categoriesPageContent {
         display: flex;
         justify-content: center;
         align-items: center;
+
         .categoryBtnGroup {
             display: flex;
             flex-wrap: wrap;
@@ -110,6 +125,7 @@ body {
             width: 90%;
             gap: .5em;
         }
+
         .categoryBtn {
             @include button;
             padding: .25em;
@@ -118,6 +134,7 @@ body {
             width: 20%;
             min-width: fit-content;
         }
+
         .categoryBtnUnclicked {
             @include button;
             padding: .1em .3em;
@@ -136,26 +153,32 @@ body {
     @include container;
     width: 100%;
     border: 1em solid $border;
+
     h1 {
         font-size: clamp(1rem, 3vw + 1rem, 5rem);
     }
+
     .rules {
         display: flex;
         justify-content: space-between;
         align-items: center;
         gap: min(2em, 3rem);
+
         h1 {
             color: $border;
         }
+
         .instructions {
             width: 60vw;
         }
+
         .rulesBtnGroup {
             display: flex;
             flex-direction: column;
             width: 40%;
             gap: .5em;
             min-width: fit-content;
+
             button {
                 @include button;
                 background: $secondary;
@@ -163,21 +186,26 @@ body {
                 padding: .5em 1em;
                 margin: 0 .5em;
                 width: 95%;
+
                 &:hover {
                     background: $border;
                 }
+
                 &:active {
-                    background:rgb(247, 86, 17);
+                    background: rgb(247, 86, 17);
                 }
 
             }
+
             .active {
                 background: $border;
             }
         }
+
         ul {
             margin: .5em;
         }
+
         li {
             font-size: max(2vw, 2.5vh);
             color: $secondary;
@@ -189,23 +217,29 @@ body {
 }
 
 // ------- Lose Page ------
-.loserPageContainer, .winnerPageContainer {
+.loserPageContainer,
+.winnerPageContainer {
     @include container;
     color: $primary;
     background: $border;
     width: 100%;
-    .loserPageContent, .winnerPageContent {
+
+    .loserPageContent,
+    .winnerPageContent {
         h1 {
             font-size: $xxlrgFontSize;
         }
+
         h2 {
             font-size: clamp(.7rem, 7vw, 7rem);
         }
     }
+
     .navbar {
         padding: 1em 0;
     }
 }
+
 .winnerPageContainer {
     background: green;
 }
@@ -215,32 +249,49 @@ body {
     @include container;
     width: 100%;
     border: 1em solid $border;
+    height: calc(100svh - 1em);
+
     h1 {
         font-size: $lrgFontSize;
         color: $secondary;
     }
+
     .footer {
         width: 100%;
         margin: 1em;
+
         button {
             width: 40%;
             min-width: fit-content;
             font-size: clamp(2rem, 6vw, 5rem);
             margin: 1rem;
         }
+
         button:first-of-type {
             background: grey;
         }
+
         button:disabled {
             opacity: 60%;
         }
     }
+
     .currentWord {
         display: flex;
         justify-content: center;
         align-items: center;
     }
+    .progressBarContainer {
+        width: 100%;
+        .progressBar {
+            max-width: 100%;
+            min-width: .1em;
+            background: $border;
+            height: 1em;
+        }
+    }
 }
+
 .pageTitle {
     color: $secondary;
 }

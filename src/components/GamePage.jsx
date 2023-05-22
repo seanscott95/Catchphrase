@@ -44,7 +44,7 @@ const GamePage =
             // Startes the timer for hot potato and high score games
             if (timer) {
                 // 60 seconds
-                timeLength = 60000;
+                timeLength = 6000;
                 if (rules === 'HOT POTATO') {
                     timeId = setTimeout(() => handlePageChange('losePage'), timeLength);
                 };
@@ -73,6 +73,26 @@ const GamePage =
             };
         }, [timer, timerStreak]);
 
+        const [width, setWidth] = useState('1%');
+        useEffect(() => {
+            // Converts the width that is a string with a percent into a number
+            const split = width.split('%');
+            const percent = Number(split[0]);
+            let percentTimes;
+            // Value will times the current width every 5ms, values convert to 12s and 60s
+            percentTimes = rules === 'STREAK' ? .053 : .105;
+
+            // Every 5 miliseconds the width will be increased
+            const interval = setInterval(() => {
+                const extraPercent = `${percent + percentTimes}%`;
+                setWidth(extraPercent);
+            }, 5);
+
+            return () => {
+                clearInterval(interval)
+            }
+        }, [width]);
+
         return (
             <div className='gamePageContainer'>
                 <section className='navbar'>
@@ -80,6 +100,9 @@ const GamePage =
                 </section>
                 <section className="currentWord">
                     <h1>{currentWord}</h1>
+                </section>
+                <section className="progressBarContainer">
+                    <div className="progressBar" style={{ width: width }}></div>
                 </section>
                 <section className='footer'>
                     <button onClick={handleGameButtons} disabled={disabled} className='navbarBtn'>SKIP</button>
