@@ -1,4 +1,4 @@
-const WinnerPage = ({ count, handlePageChange, handleStartGame }) => {
+const WinnerPage = ({ count, homepageBtnClick, handleStartGame }) => {
     return (
         <div className='winnerPageContainer'>
             <section className='winnerPageContent'>
@@ -8,7 +8,7 @@ const WinnerPage = ({ count, handlePageChange, handleStartGame }) => {
                 </div>
             </section>
             <section className='navbar'>
-                <button onClick={() => handlePageChange('homepage')} className='navbarBtn'>HOME</button>
+                <button onClick={homepageBtnClick} className='navbarBtn'>HOME</button>
                 <button onClick={handleStartGame} className='navbarBtn'>PLAY</button>
             </section>
         </div>

@@ -74,6 +74,7 @@ const MainLayout = () => {
   ]);
 
   const [timer, setTimer] = useState(false);
+  const [timerStreak, setTimerStreak] = useState(false);
 
   const handleStartGame = () => {
     setCount(0);
@@ -88,7 +89,11 @@ const MainLayout = () => {
     setCurrentList(list);
 
     // Starts the timer
-    setTimer(true);
+    if (rules === 'STREAK') {
+      setTimerStreak(true)
+    } else {
+      setTimer(true);
+    };
   };
 
   const handlePageChange = (page) => {
@@ -97,10 +102,22 @@ const MainLayout = () => {
       return;
     } else if (page === 'losePage' || 'winnerPage') {
       setTimer(false);
+      setTimerStreak(false);
+    } else if (page === 'homepage' || 'categoriesPage') {
+      setTimer(false);
+      setTimerStreak(false);
+      setCount(0);
+      setRules('HOT POTATO');
     } else {
       setTimer(false);
+      setTimerStreak(false);
       setCount(0);
     };
+  };
+
+  const homepageBtnClick = () => {
+    handlePageChange('homepage');
+    setRules('HOT POTATO');
   };
 
   return (
@@ -127,21 +144,26 @@ const MainLayout = () => {
           setCount={setCount}
           currentList={currentList}
           handlePageChange={handlePageChange}
-          setTimer={setTimer}
           timer={timer}
+          setRules={setRules}
           rules={rules}
+          homepageBtnClick={homepageBtnClick}
+          timerStreak={timerStreak}
+          setTimerStreak={setTimerStreak}
         /> : <></>}
       {page === 'losePage' ?
         <LosePageComp
           count={count}
           handlePageChange={handlePageChange}
           handleStartGame={handleStartGame}
+          homepageBtnClick={homepageBtnClick}
         /> : <></>}
       {page === 'winnerPage' ?
         <WinnerPageComp
           count={count}
           handlePageChange={handlePageChange}
           handleStartGame={handleStartGame}
+          homepageBtnClick={homepageBtnClick}
         /> : <></>}
     </>
   );

@@ -57,6 +57,7 @@ const RulesPage = ({ handlePageChange, handleStartGame, rules, setRules }) => {
 
     const handleBackBtn = () => {
         setRules('HOT POTATO');
+        setRulesList(rulesListTemplate);
         handlePageChange('categoriesPage');
     };
 

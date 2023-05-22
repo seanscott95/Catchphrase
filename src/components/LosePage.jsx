@@ -1,4 +1,4 @@
-const LosePage = ({ count, handlePageChange, handleStartGame }) => {
+const LosePage = ({ count, homepageBtnClick, handleStartGame }) => {
     return (
         <div className='loserPageContainer'>
             <section className='loserPageContent'>
@@ -8,7 +8,7 @@ const LosePage = ({ count, handlePageChange, handleStartGame }) => {
                 </div>
             </section>
             <section className='navbar'>
-                <button onClick={() => handlePageChange('homepage')} className='navbarBtn'>HOME</button>
+                <button onClick={homepageBtnClick} className='navbarBtn'>HOME</button>
                 <button onClick={handleStartGame} className='navbarBtn'>PLAY</button>
             </section>
         </div>
