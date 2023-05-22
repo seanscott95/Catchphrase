@@ -38,36 +38,40 @@ const GamePage =
         // Starts quiz for 60 seconds when timer is truthy
         useEffect(() => {
             let timeId;
+            let timeIdStreak;
+            let timeLength;
 
+            // Startes the timer for hot potato and high score games
             if (timer) {
+                // 60 seconds
+                timeLength = 60000;
                 if (rules === 'HOT POTATO') {
-                    timeId = setTimeout(() => handlePageChange('losePage'), 60000);
+                    timeId = setTimeout(() => handlePageChange('losePage'), timeLength);
                 };
-                if (rules === 'HIGHSCORE') {
-                    timeId = setTimeout(() => handlePageChange('winnerPage'), 60000);
+                if (rules === 'HIGH SCORE') {
+                    timeId = setTimeout(() => handlePageChange('winnerPage'), timeLength);
                 };
             };
+
+            // Starts timer for streak games
+            if (rules === 'STREAK') {
+                if (timerStreak) {
+                    // 12 seconds
+                    timeLength = 12000;
+                    timeIdStreak = setTimeout(() => handlePageChange('winnerPage'), timeLength);
+                };
+                // Resets the timer for streak games
+                if (!timerStreak) {
+                    setTimerStreak(true);
+                };
+            };
+
+            // Resets the timer if timerStreak is falsy
             return () => {
                 clearTimeout(timeId);
-            };
-        }, [timer]);
-
-        // Starts the streak quiz for 12 seconds when timerStreak is truthy
-        useEffect(() => {
-            let timeIdStreak;
-
-            // Starts timer
-            if (timerStreak) {
-                timeIdStreak = setTimeout(() => handlePageChange('winnerPage'), 12000);
-            };
-            // Resets the timer if timerStreak is falsy
-            if(!timerStreak) {
-                setTimerStreak(true);
-            };
-            return () => {
                 clearTimeout(timeIdStreak);
             };
-        }, [timerStreak]);
+        }, [timer, timerStreak]);
 
         return (
             <div className='gamePageContainer'>

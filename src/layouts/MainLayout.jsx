@@ -90,8 +90,9 @@ const MainLayout = () => {
 
     // Starts the timer
     if (rules === 'STREAK') {
-      setTimerStreak(true)
-    } else {
+      setTimerStreak(true);
+    };
+    if (rules === 'HOT POTATO' || 'HIGH SCORE') {
       setTimer(true);
     };
   };
