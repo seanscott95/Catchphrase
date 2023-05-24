@@ -1,4 +1,13 @@
-const WinnerPage = ({ count, homepageBtnClick, handleStartGame }) => {
+import { useEffect } from "react";
+
+import WinSound from '../assets/audio/win-sound.wav';
+
+const WinnerPage = ({ count, homepageBtnClick, handleStartGame, playSound }) => {
+
+    useEffect(() => {
+        playSound(WinSound);
+    }, []);
+
     return (
         <div className='winnerPageContainer'>
             <section className='winnerPageContent'>

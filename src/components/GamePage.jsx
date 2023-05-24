@@ -1,5 +1,9 @@
 import { useState, useEffect } from "react";
 
+import SkipBtnSound from '../assets/audio/skip-button.wav';
+import CorrectBtnSound from '../assets/audio/correct-button.wav';
+import TimerBeep from '../assets/audio/timer-beep.wav';
+
 const GamePage =
     ({
         setCount,
@@ -10,12 +14,21 @@ const GamePage =
         homepageBtnClick,
         timerStreak,
         setTimerStreak,
+        playSound,
     }) => {
         const [currentWord, setCurrentWord] = useState(currentList[0] || '');
         const [disabled, setDisabled] = useState('');
         const [width, setWidth] = useState('1%');
 
-        const handleGameButtons = () => {
+        const handleGameButtons = (e) => {
+            // Plays the buttons sound effects
+            if (e.target.value === 'skip') {
+                playSound(SkipBtnSound);
+            };
+            if (e.target.value === 'correct') {
+                playSound(CorrectBtnSound);
+            };
+
             // Disables buttons for two seconds
             setDisabled(true);
             setTimeout(() => {
@@ -27,8 +40,8 @@ const GamePage =
             setCurrentWord(currentList[index + 1]);
         };
 
-        const handleCorrectBtn = () => {
-            handleGameButtons();
+        const handleCorrectBtn = (e) => {
+            handleGameButtons(e);
             setCount(count => count + 1);
             // Resets the timer and progress bar during streak rules
             if (rules === 'STREAK') {
@@ -72,6 +85,7 @@ const GamePage =
             return () => {
                 clearTimeout(timeId);
                 clearTimeout(timeIdStreak);
+
             };
         }, [timer, timerStreak]);
 
@@ -94,6 +108,21 @@ const GamePage =
             }
         }, [width]);
 
+
+        // Timer will beep sound for 1 second until component unmounts
+        useEffect(() => {
+            // Starts the beep interval of 1 second
+            const soundEffect = new Audio(TimerBeep);
+            const int = setInterval(() => {
+                soundEffect.play();
+            }, 1000);
+
+            return () => {
+                // Stops any audio playing if component unmounts
+                clearInterval(int);
+            };
+        }, []);
+
         return (
             <div className='gamePageContainer'>
                 <section className='navbar'>
@@ -106,8 +135,8 @@ const GamePage =
                     <div className="progressBar" style={{ width: width }}></div>
                 </section>
                 <section className='footer'>
-                    <button onClick={handleGameButtons} disabled={disabled} className='navbarBtn'>SKIP</button>
-                    <button onClick={handleCorrectBtn} disabled={disabled} className='navbarBtn'>CORRECT</button>
+                    <button value='skip' onClick={(e) => handleGameButtons(e)} disabled={disabled} className='navbarBtn'>SKIP</button>
+                    <button value='correct' onClick={(e) => handleCorrectBtn(e)} disabled={disabled} className='navbarBtn'>CORRECT</button>
                 </section>
             </div>
         );

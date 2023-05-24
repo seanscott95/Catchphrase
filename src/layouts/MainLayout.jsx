@@ -14,7 +14,7 @@ const MainLayout = () => {
   const [currentList, setCurrentList] = useState('');
 
   const [rules, setRules] = useState('HOT POTATO');
-
+  
   const [categories, setCategories] = useState([
     {
       name: 'PARTY',
@@ -76,6 +76,10 @@ const MainLayout = () => {
   const [timer, setTimer] = useState(false);
   const [timerStreak, setTimerStreak] = useState(false);
 
+  const playSound = (song) => {
+    return new Audio(song).play()
+  };
+
   const handleStartGame = () => {
     setCount(0);
     setPage('gamesPage');
@@ -125,7 +129,7 @@ const MainLayout = () => {
     <>
       {page === 'homepage' ?
         <HomepageComp
-        handlePageChange={handlePageChange}
+          handlePageChange={handlePageChange}
         /> : <></>}
       {page === 'categoriesPage' ?
         <CategoriesPageComp
@@ -151,6 +155,7 @@ const MainLayout = () => {
           homepageBtnClick={homepageBtnClick}
           timerStreak={timerStreak}
           setTimerStreak={setTimerStreak}
+          playSound={playSound}
         /> : <></>}
       {page === 'losePage' ?
         <LosePageComp
@@ -158,6 +163,7 @@ const MainLayout = () => {
           handlePageChange={handlePageChange}
           handleStartGame={handleStartGame}
           homepageBtnClick={homepageBtnClick}
+          playSound={playSound}
         /> : <></>}
       {page === 'winnerPage' ?
         <WinnerPageComp
@@ -165,6 +171,7 @@ const MainLayout = () => {
           handlePageChange={handlePageChange}
           handleStartGame={handleStartGame}
           homepageBtnClick={homepageBtnClick}
+          playSound={playSound}
         /> : <></>}
     </>
   );
