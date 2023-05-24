@@ -4,8 +4,6 @@
 - GitHub - https://github.com/seanscott95/catchphrase
 - Catchphrase - https://catchphrases.netlify.app/
 
-<p>Please allow site to load for 10-15 seconds</p>
-
 ## Description
 
 <p>This application was created with JavaScript and included the following technologies:</p>
@@ -13,6 +11,10 @@
 - [Vite (React Template)](https://vitejs.dev/)
 
 - [Node.js](https://nodejs.org/en/)
+
+- [SASS](https://sass-lang.com/)
+
+- [Netlify](https://www.netlify.com/)
     
 ## Table of Contents 
 - [Screenshots](#Screenshots)
