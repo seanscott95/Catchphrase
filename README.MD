@@ -2,9 +2,14 @@
 
 ## Links
 - GitHub - https://github.com/seanscott95/catchphrase
-- Catchphrase - https://catchphrases.netlify.app/
+- **PLAY CATCHPHRASES HERE** https://catchphrases.netlify.app/
 
 ## Description
+<p>This application is a game named catchphrases.</p>
+<p>Play with other people and get them to guess the catchphrase</p>
+<p>Choose what type of game you want to play: HOT POTATO, HIGH SCORE and STREAK</p>
+<p>Instructions on the rules page</p>
+<p>Please enjoy this fun game with sound effects included</p>
 
 <p>This application was created with JavaScript and included the following technologies:</p>
 
